@@ -33,5 +33,5 @@ stages:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: 'Azure for Students (e43f1ee2-916b-4e66-b8df-d26a7307ff58)'
         azureContainerRegistry: '{"loginServer":"cloudcompapptest.azurecr.io", "id" : "/subscriptions/e43f1ee2-916b-4e66-b8df-d26a7307ff58/resourceGroups/flask-webapp/providers/Microsoft.ContainerRegistry/registries/cloudcompapptest"}'
-        dockerComposeFile: '**/docker-compose.yml'
+        dockerComposeFile: '**/docker-compose.yaml'
         action: 'Build services'

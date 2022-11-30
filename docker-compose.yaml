@@ -11,4 +11,6 @@ services:
     image: cloudcompapptest.azurecr.io/phonebook-app:latest
     depends_on:
       - phonebook-mysql
+    ports:
+      - "8000:80"
     restart: always

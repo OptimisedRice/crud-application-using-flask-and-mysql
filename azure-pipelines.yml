@@ -28,10 +28,17 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: DockerCompose@0
+    - task: Docker@2
       inputs:
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'Azure for Students (e43f1ee2-916b-4e66-b8df-d26a7307ff58)'
-        azureContainerRegistry: '{"loginServer":"cloudcompapptest.azurecr.io", "id" : "/subscriptions/e43f1ee2-916b-4e66-b8df-d26a7307ff58/resourceGroups/flask-webapp/providers/Microsoft.ContainerRegistry/registries/cloudcompapptest"}'
-        dockerComposeFile: '**/docker-compose.yaml'
-        action: 'Push services'
+        containerRegistry: 'cloudcompapptest'
+        repository: 'flaskcrudapp'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile-app'
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'cloudcompapptest'
+        repository: 'flaskcrudmysql'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile-mysql'
+
+    

@@ -53,6 +53,7 @@ stages:
         containers: |
           cloudcompapptest.azurecr.io/flaskcrudapp:latest
           cloudcompapptest.azurecr.io/flaskcrudmysql:latest
+        multicontainerConfigFile: '**/docker-compose.yaml'
     
 
 

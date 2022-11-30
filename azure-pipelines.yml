@@ -32,10 +32,8 @@ stages:
       inputs:
         azureSubscription: 'Azure for Students (e43f1ee2-916b-4e66-b8df-d26a7307ff58)'
         appName: 'flaskcrudapp'
-        containers: |
-          cloudcompapptest.azurecr.io/phonebook-app:latest
-          cloudcompapptest.azurecr.io/phonebook-mysql:latest
         multicontainerConfigFile: '**/docker-compose.yaml'
+        appSettings: '-Port 8181'
       
     
 

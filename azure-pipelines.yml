@@ -54,6 +54,7 @@ stages:
           cloudcompapptest.azurecr.io/phonebook-app:latest
           cloudcompapptest.azurecr.io/phonebook-mysql:latest
         multicontainerConfigFile: '**/docker-compose.yaml'
+        appSettings: '-Port 8181'
       
     
 

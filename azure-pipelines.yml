@@ -46,7 +46,13 @@ stages:
         tags: |
           $(Build.BuildId)
           latest
-    
+    - task: AzureWebAppContainer@1
+      inputs:
+        azureSubscription: 'Azure for Students (e43f1ee2-916b-4e66-b8df-d26a7307ff58)'
+        appName: 'flaskcrudapp'
+        containers: |
+          cloudcompapptest.azurecr.io/flaskcrudapp:latest
+          cloudcompapptest.azurecr.io/flaskcrudmysql:latest
     
 
 

@@ -34,11 +34,20 @@ stages:
         repository: 'flaskcrudapp'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile-app'
+        tags: |
+          $(Build.BuildId)
+          latest
     - task: Docker@2
       inputs:
         containerRegistry: 'cloudcompapptest'
         repository: 'flaskcrudmysql'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile-mysql'
+        tags: |
+          $(Build.BuildId)
+          latest
+    
+    
+
 
     

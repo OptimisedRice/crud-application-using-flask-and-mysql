@@ -3,16 +3,12 @@ version: '3.3'
 services:
   phonebook-mysql:
     container_name: phonebook-mysql
-    build:
-      context: .
-      dockerfile: Dockerfile-mysql
+    image: cloudcompapptest.azurecr.io/phonebook-mysql:latest
     restart: always
 
   phonebook-app:
     container_name: phonebook-app
-    build:
-      context: .
-      dockerfile: Dockerfile-app
+    image: cloudcompapptest.azurecr.io/phonebook-app:latest
     depends_on:
       - phonebook-mysql
     restart: always

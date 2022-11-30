@@ -1,4 +1,4 @@
-version: '2'
+version: '3.3'
 
 services:
   phonebook-mysql:
@@ -15,4 +15,6 @@ services:
       dockerfile: Dockerfile-app
     depends_on:
       - phonebook-mysql
+    ports:
+       - "8181:8181"
     restart: always

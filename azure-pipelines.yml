@@ -28,24 +28,6 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Docker@2
-      inputs:
-        containerRegistry: 'cloudcompapptest'
-        repository: 'phonebook-app'
-        command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile-app'
-        tags: |
-          $(Build.BuildId)
-          latest
-    - task: Docker@2
-      inputs:
-        containerRegistry: 'cloudcompapptest'
-        repository: 'phonebook-mysql'
-        command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile-mysql'
-        tags: |
-          $(Build.BuildId)
-          latest
     - task: AzureWebAppContainer@1
       inputs:
         azureSubscription: 'Azure for Students (e43f1ee2-916b-4e66-b8df-d26a7307ff58)'

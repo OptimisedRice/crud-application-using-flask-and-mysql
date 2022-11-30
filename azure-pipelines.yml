@@ -1,0 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    - task: AzureWebAppContainer@1
+      inputs:
+        azureSubscription: 'Azure for Students (e43f1ee2-916b-4e66-b8df-d26a7307ff58)'
+        appName: 'flaskcrudapp'
+        multicontainerConfigFile: '**/docker-compose.yaml'
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'

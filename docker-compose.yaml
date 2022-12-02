@@ -3,12 +3,14 @@ version: '3.3'
 services:
   phonebook-mysql:
     container_name: phonebook-mysql
-    image: phonebook-mysql:latest
+    image: cloudcompapptest.azurecr.io/phonebook-mysql:latest
     restart: always
 
   phonebook-app:
     container_name: phonebook-app
-    image: phonebook-app:latest
+    image: cloudcompapptest.azurecr.io/phonebook-app:latest
     depends_on:
       - phonebook-mysql
+    ports:
+      - "8000:80"
     restart: always
